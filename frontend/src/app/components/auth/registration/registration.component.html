@@ -1,0 +1,17 @@
+<div class="user-form" id="username-page">
+  <div class="w-50">
+    <h2>Register</h2>
+    <form [formGroup]="registrationForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" formControlName="username">
+
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" formControlName="fullName">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" formControlName="password">
+
+      <button type="submit" (click)="register()">Sign up</button>
+    </form>
+  </div>
+</div>

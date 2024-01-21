@@ -1,0 +1,28 @@
+<div class="chat-container" id="chat-page">
+  <div class="users-list">
+    <h4>Online Users</h4>
+    <div class="users-list-container">
+      <div *ngFor="let user of activeUsers">
+        <app-user [displayUser]="user" [isUserActiveConversation]="user ===activeConversationUser"></app-user>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-area">
+    <div class="chat-area" id="chat-messages" #chatMessages>
+      <div *ngIf="!activeConversationUser" class="text-center">
+        <h1>No chat selected.</h1>
+      </div>
+      <app-message *ngFor="let message of activeConversationMessages" [displayMessage]="message"
+                   [loggedInUser]="this.loggedInUser.username"
+                   class="d-flex flex-column"></app-message>
+    </div>
+    <form [formGroup]="chatForm">
+      <div class="message-input">
+        <input type="text" id="message" formControlName="message">
+        <button type="submit" (click)="sendMessage()">Send</button>
+      </div>
+    </form>
+  </div>
+</div>
+<p class="d-flex justify-content-center">Please log out before closing the page as for now we can't handle it correctly</p>

@@ -1,0 +1,15 @@
+<div class="user-form" id="username-page">
+  <div class="w-50">
+    <h2>Enter Chat</h2>
+    <form [formGroup]="loginForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" formControlName="username">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" formControlName="password">
+
+      <button type="submit" (click)="login()">Sign in</button>
+      <a class="logout-btn" id="logout" routerLink="../register">Register</a>
+    </form>
+  </div>
+</div>

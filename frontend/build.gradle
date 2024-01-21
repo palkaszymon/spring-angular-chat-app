@@ -1,0 +1,27 @@
+plugins {
+  id 'java'
+  id "com.github.node-gradle.node" version "7.0.1"
+}
+
+node {
+  version = '20.11.0'
+  npmVersion = '10.3.0'
+  download = true
+  workDir = file("${project.projectDir}/.gradle/nodejs")
+  npmWorkDir = file("${project.projectDir}/.gradle/npm")
+  nodeProjectDir = file("${project.projectDir}")
+}
+
+task buildFrontend(type: NpmTask) {
+  args = ['run', 'build']
+}
+
+task deletePublicDirectory() {
+  def dirName = "../src/main/resources/public"
+  file( dirName ).list().each{
+    f ->
+      delete "${dirName}/${f}"
+  }
+}
+
+buildFrontend.dependsOn(deletePublicDirectory, npm_install)
