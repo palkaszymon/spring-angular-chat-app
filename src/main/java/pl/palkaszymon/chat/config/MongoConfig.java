@@ -16,14 +16,8 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     @Value("${spring.data.mongodb.database}")
     private String dbName;
 
-    @Value("${spring.data.mongodb.host}")
-    private String dbHost;
-
-    @Value("${spring.data.mongodb.port}")
-    private String dbPort;
-
-    @Value("${spring.data.mongodb.uuid-representation}")
-    private String uuidRepresentation;
+    @Value("${spring.data.mongodb.uri}")
+    private String dbUri;
 
     @Override
     protected String getDatabaseName() {
@@ -32,6 +26,6 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
 
     @Bean(name = "userMongoTemplate")
     public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(new SimpleMongoClientDatabaseFactory(String.format("mongodb://%s:%s/%s?uuidRepresentation=%s", dbHost, dbPort, dbName, uuidRepresentation)));
+        return new MongoTemplate(new SimpleMongoClientDatabaseFactory(dbUri));
     }
 }
