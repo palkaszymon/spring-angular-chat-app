@@ -1,14 +1,19 @@
+$primary-color: #3498db;
+$background-color: #f0f0f0;
+$border-color: #ccc;
+$disabled-color: darkgrey;
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background-color: $background-color;
   display: flex;
   align-items: center;
   height: 100vh;
   flex-direction: column;
 }
 
-.user-form {
+.input-form {
   width: 80vw;
   height: 80vh;
   padding: 40px;
@@ -18,36 +23,38 @@ body {
   border-radius: 8px;
   display: flex;
   justify-content: center;
-}
 
-.user-form h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  text-align: center;
-}
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 
-.user-form label {
-  display: block;
-  margin-bottom: 8px;
-}
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
 
-.user-form input {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
+  input, select, textarea {
+    width: 100%;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
 
-.user-form button {
-  padding: 12px;
-  border: none;
-  background-color: #3498db;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
+  button {
+    padding: 12px;
+    border: none;
+    background-color: $primary-color;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
 
-input {
-  padding: 10px;
+    &:disabled {
+      background-color: $disabled-color;
+      cursor: default;
+    }
+  }
 }

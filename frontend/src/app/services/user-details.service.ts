@@ -16,7 +16,7 @@ export class UserDetailsService {
   }
 
   getUserDetails(): User | null {
-    let storageUser = sessionStorage.getItem('username')
+    const storageUser = sessionStorage.getItem('username')
     if (storageUser) {
       return new User(
         storageUser,

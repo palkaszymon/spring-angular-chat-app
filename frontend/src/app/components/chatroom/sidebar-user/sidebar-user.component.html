@@ -1,5 +1,6 @@
-<div (click)="setActiveConversationUser()" [style.background-color]="isUserActiveConversation ? 'lightgray' : ''" class="p-1">
-  <h5>({{displayUser.username}})</h5>
-  <div>{{displayUser.fullName}}</div>
+<div (keyup.enter)="setActiveConversationUser()" (click)="setActiveConversationUser()" tabindex="0"
+     [style.background-color]="isUserActiveConversation ? 'lightgray' : ''" class="p-1">
+  <h5>({{ displayUser.username }})</h5>
+  <div>{{ displayUser.fullName }}</div>
 </div>
 

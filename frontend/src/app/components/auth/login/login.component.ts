@@ -44,12 +44,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    let newUser = this.loginForm.value
+    const newUser = this.loginForm.value
     this.http.post('/api/auth/login', {
       username: newUser.username,
       password: newUser.password
     }).subscribe(
-      (response: HttpResponse<any>) => {
+      (response: HttpResponse<unknown>) => {
         if (response.status === 200) {
           this.userDetailsService.updateUserDetails(response.body as User)
           this.router.navigate(['/chat']);

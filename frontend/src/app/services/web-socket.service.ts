@@ -45,7 +45,7 @@ export class WebSocketService {
   }
 
   private onPublicMessage(payload: Stomp.Message) {
-    let user = JSON.parse(payload.body) as User
+    const user = JSON.parse(payload.body) as User
     if (!user.online) {
       this.chatDataService.removeUser(user);
       return;
@@ -57,8 +57,8 @@ export class WebSocketService {
   }
 
   private onDirectMessage(payload: Stomp.Message) {
-    let payloadMessage = JSON.parse(payload.body)
-    let sendMsg = new ReceivedMessage(payloadMessage.sender, payloadMessage.receiver, payloadMessage.sentAt, payloadMessage.content)
+    const payloadMessage = JSON.parse(payload.body)
+    const sendMsg = new ReceivedMessage(payloadMessage.sender, payloadMessage.receiver, payloadMessage.sentAt, payloadMessage.content)
     this.chatDataService.addMessage(sendMsg, sendMsg.sender)
   }
 

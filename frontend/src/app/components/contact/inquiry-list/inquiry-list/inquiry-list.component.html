@@ -1,0 +1,8 @@
+<div class="inquiry-list">
+  <button type="submit" (click)="goToForm()">Add another inquiry</button>
+  <ul>
+    <li *ngFor="let inquiry of inquiryList">
+      {{displayInquiry(inquiry)}}
+    </li>
+  </ul>
+</div>

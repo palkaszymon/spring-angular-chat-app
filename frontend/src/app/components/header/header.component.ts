@@ -16,7 +16,7 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
-  @Input() pageTitle!: String
+  @Input() pageTitle!: string
   loggedInUser!: User | null;
 
   constructor(private userDetailsService: UserDetailsService,

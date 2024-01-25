@@ -36,8 +36,8 @@ export class RegistrationComponent implements OnInit {
   }
 
   register() {
-    let newUser = this.registrationForm.value
-    this.http.post<HttpResponse<any>>('/api/auth/register', {
+    const newUser = this.registrationForm.value
+    this.http.post<HttpResponse<unknown>>('/api/auth/register', {
       username: newUser.username,
       fullName: newUser.fullName,
       password: newUser.password

@@ -72,7 +72,7 @@ export class ChatDataService {
   }
 
   addMessage(message: Message, queue: string) {
-    let existingMessages = this.messageStorage.get(queue);
+    const existingMessages = this.messageStorage.get(queue);
     if (existingMessages) {
       existingMessages.push(message);
     } else {
@@ -82,13 +82,13 @@ export class ChatDataService {
   }
 
   private notifyNewMessageUpdate() {
-    let copyMap = new Map(this.messageStorage);
+    const copyMap = new Map(this.messageStorage);
     this.messageStorageSubject.next(copyMap);
   }
 
   private fetchInitialActiveConversationMessages() {
-    let loggedInUser = this.userDetailsService.getUserDetails()!.username;
-    let activeConversationUser = this.activeConversationUser.username;
+    const loggedInUser = this.userDetailsService.getUserDetails()!.username;
+    const activeConversationUser = this.activeConversationUser.username;
     this.http.get<Message[]>(`/api/messages/${loggedInUser}/${activeConversationUser}`).subscribe(
       response => {
         this.messageStorage.set(activeConversationUser, response)

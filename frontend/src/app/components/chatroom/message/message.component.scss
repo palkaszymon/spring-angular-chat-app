@@ -1,22 +1,29 @@
+$message-container-margin: 4px;
+$message-container-border-radius: 4px;
+$primary-color: #3498db;
+$secondary-color: #ecf0f1;
+$text-color: #fff;
+$text-secondary-color: #333;
+
 .message-container {
-  margin-bottom: 4px;
-  border-radius: 4px;
+  margin-bottom: $message-container-margin;
+  border-radius: $message-container-border-radius;
   width: fit-content;
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   word-break: break-word;
-}
 
-.message-sender {
-  background-color: #3498db;
-  color: #fff;
-  align-self: flex-end;
-}
+  &.message-sender {
+    background-color: $primary-color;
+    color: $text-color;
+    align-self: flex-end;
+  }
 
-.message-receiver {
-  background-color: #ecf0f1;
-  color: #333;
-  align-self: flex-start;
+  &.message-receiver {
+    background-color: $secondary-color;
+    color: $text-secondary-color;
+    align-self: flex-start;
+  }
 }

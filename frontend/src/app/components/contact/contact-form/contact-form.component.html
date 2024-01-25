@@ -1,0 +1,31 @@
+<div class="input-form">
+  <div class="w-50">
+    <h2>Contact us:</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmitForm()">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" formControlName="username">
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" formControlName="email">
+
+      <label for="phoneNumber">Phone number: </label>
+      <input type="tel" id="phoneNumber" name="phoneNumber" formControlName="phoneNumber">
+
+      <label for="reason">Reason of your request: </label>
+      <select name="reason" id="reason" formControlName="reason">
+        <option value="defect">Site defect</option>
+        <option value="account">Account issues</option>
+        <option value="userReport">Report a user</option>
+      </select>
+
+      <label for="inquiry">Provide your inquiry here: </label>
+      <textarea id="inquiry" name="inquiry" rows="4" cols="50" formControlName="inquiry"></textarea>
+
+      <label for="urgent">Is this request urgent? </label>
+      <input class="form-check-inline" type="checkbox" name="urgent" id="urgent" formControlName="urgent">
+
+      <button type="submit" [disabled]="!contactForm.valid">Send</button>
+    </form>
+  </div>
+</div>
+

@@ -68,8 +68,8 @@ export class ChatroomComponent implements OnInit, OnDestroy {
   }
 
   sendMessage() {
-    let messageContent = this.chatForm.get('message')?.value.trim();
-    let messageToSend = new SentMessage(
+    const messageContent = this.chatForm.get('message')?.value.trim();
+    const messageToSend = new SentMessage(
       this.loggedInUser.username,
       this.activeConversationUser.username,
       new Date(),
@@ -89,7 +89,7 @@ export class ChatroomComponent implements OnInit, OnDestroy {
   private subscribeToActiveConversationUser() {
     this.chatDataService.getActiveConversationUserSubject().subscribe((user) => {
       this.activeConversationUser = user
-      let newUserMessages = this.chatDataService.getMessagesForUser(user.username);
+      const newUserMessages = this.chatDataService.getMessagesForUser(user.username);
       if (newUserMessages) {
         this.activeConversationMessages = newUserMessages;
       } else {

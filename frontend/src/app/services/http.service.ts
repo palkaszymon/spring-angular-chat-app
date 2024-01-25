@@ -13,7 +13,7 @@ export class HttpService {
     return this.http.get<T>(`${this.url + route}`)
   }
 
-  post<T>(apiRoute: string, body: any) {
+  post<T>(apiRoute: string, body: unknown) {
     return this.http.post<T>(`${this.url + apiRoute}`, body, {observe: "response"});
   }
 }

@@ -3,7 +3,7 @@
     <h1>{{pageTitle}}</h1>
     <div *ngIf="loggedInUser" class="logout-btn-container">
       <div class="connected-user">Logged in as: {{loggedInUser.username}}</div>
-      <a class="logout-btn" id="logout" (click)="logout()">Logout</a>
+      <button class="logout-btn" id="logout" (click)="logout()">Logout</button>
     </div>
   </div>
 </header>
