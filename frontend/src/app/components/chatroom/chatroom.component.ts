@@ -7,7 +7,15 @@ import {
 import {UserDetailsService} from "../../services/user-details.service";
 import {User} from "../../models/user";
 import {WebSocketService} from "../../services/web-socket.service";
-import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators
+} from "@angular/forms";
 import {ChatDataService} from "../../services/chat-data.service";
 import {NgForOf, NgIf} from "@angular/common";
 import {SidebarUserComponent} from "./sidebar-user/sidebar-user.component";
@@ -62,7 +70,7 @@ export class ChatroomComponent implements OnInit, OnDestroy {
   createChatForm() {
     this.chatForm = this.formBuilder.group(
       {
-        message: ['', [Validators.required]]
+        message: ['', [Validators.required, activeUserValidator]]
       }
     )
   }
@@ -118,4 +126,13 @@ export class ChatroomComponent implements OnInit, OnDestroy {
       this.chatMessages.nativeElement.scrollTop = this.chatMessages.nativeElement.scrollHeight;
     }
   }
+}
+
+export function activeUserValidator(activeConversationUser: AbstractControl | null): ValidatorFn {
+  return (): ValidationErrors | null => {
+    if (!activeConversationUser || !activeConversationUser.value) {
+      return {'activeUserRequired': true};
+    }
+    return null;
+  };
 }

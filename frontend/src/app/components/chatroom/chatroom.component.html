@@ -20,7 +20,7 @@
     <form [formGroup]="chatForm">
       <div class="message-input">
         <input type="text" id="message" formControlName="message">
-        <button type="submit" (click)="sendMessage()">Send</button>
+        <button type="submit" (click)="sendMessage()" [disabled]="!this.chatForm.valid">Send</button>
       </div>
     </form>
   </div>

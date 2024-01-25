@@ -1,4 +1,4 @@
-<div class="input-form" id="username-page">
+<div class="user-form" id="username-page">
   <div class="w-50">
     <h2>Register</h2>
     <form [formGroup]="registrationForm">
@@ -11,7 +11,7 @@
       <label for="password">Password:</label>
       <input type="password" id="password" name="password" formControlName="password">
 
-      <button type="submit" (click)="register()">Sign up</button>
+      <button type="submit" (click)="register()" [disabled]="!registrationForm.valid">Sign up</button>
     </form>
   </div>
 </div>

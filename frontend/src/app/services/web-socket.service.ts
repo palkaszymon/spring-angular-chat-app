@@ -16,13 +16,13 @@ export class WebSocketService {
   constructor(private userDetailsService: UserDetailsService,
               private chatDataService: ChatDataService) {
     this.loggedInUser = this.userDetailsService.getUserDetails()!;
-    const socket = new SockJS('http://localhost:8080/ws');
+    const socket = new SockJS('/ws');
     this.stompClient = Stomp.over(socket);
     this.stompClient.debug = () => {}; //turns off console logs with ws messages
   }
 
   public connect() {
-    const socket = new SockJS('http://localhost:8080/ws');
+    const socket = new SockJS('/ws');
     const headers = {
       'custom-session-id': this.loggedInUser.username
     }

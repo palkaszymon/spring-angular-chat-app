@@ -14,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/api/users")
+@CrossOrigin
 public class UserController {
     private final SimpMessagingTemplate template;
     private final UserService service;

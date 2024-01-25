@@ -5,11 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.palkaszymon.chat.domain.model.request.LoginRequest;
 import pl.palkaszymon.chat.domain.model.request.RegistrationRequest;
 import pl.palkaszymon.chat.domain.model.user.User;
@@ -21,6 +17,7 @@ import pl.palkaszymon.chat.domain.service.AuthService;
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/api/auth")
+@CrossOrigin
 public class AuthController {
     private final SimpMessagingTemplate template;
     private final AuthService authService;
