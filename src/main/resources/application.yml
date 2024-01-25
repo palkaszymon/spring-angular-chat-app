@@ -3,4 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri:
+      host: localhost
+      port: 27017
+      database: chat
+      uuid-representation: standard
